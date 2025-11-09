@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>全部资讯 | 东神萤火电竞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+
+  <!-- Open Graph 复用同一张分享图 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="全部资讯 | 东神萤火电竞">
+  <meta property="og:description" content="查看所有官方公告与选手 MVP/SVP 记录">
+  <meta property="og:url" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/ZxzxdCkgd.html">
+  <meta property="og:image" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/publicity.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root{ --primary:#0ff; --bg:#111; --text:#fff; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;text-align:center;}
+    button{cursor:pointer;font-weight:bold;border:none;border-radius:4px;}
+    /* 按钮页 */
+    #btnPage{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:2rem;}
+    .bigBtn{width:240px;padding:1rem;font-size:1.3rem;background:var(--primary);color:#000;}
+    /* 列表页 */
+    #listPage{display:none;}
+    .top-bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid #333;}
+    .backBtn{background:var(--primary);color:#000;padding:.4rem .8rem;}
+    .shareBtn{background:var(--primary);color:#000;padding:.4rem .8rem;}
+    .content{max-width:800px;margin:2rem auto;padding:0 1rem;}
+    .list{list-style:none;text-align:left;}
+    .list li{padding:.6rem 0;border-bottom:1px solid #222;}
+    .empty{color:#888;text-align:center;margin:2rem 0;}
+    footer{text-align:center;padding:2rem 0;font-size:.9rem;color:#666;}
+  </style>
+</head>
+
+<body>
+  <!-- ========= 按钮页 ========= -->
+<div id="btnPage">
+  <!-- 返回官网 -->
+  <div style="position:absolute;top:1rem;left:1.5rem;">
+    <a class="backBtn" href="index.html">↩ 返回官网</a>
+  </div>
+
+  <h1>全部资讯</h1>
+  <button class="bigBtn" onclick="showList('gg')">查看全部公告</button>
+  <button class="bigBtn" onclick="showList('mvp')">查看全部 MVP / SVP</button>
+</div>
+
+  <!-- ========= 列表页 ========= -->
+  <div id="listPage">
+    <div class="top-bar">
+      <button class="backBtn" onclick="backToBtn()">↩ 返回上级</button>
+      <button class="shareBtn" onclick="sharePage()">分享</button>
+    </div>
+    <div class="content">
+      <h2 id="listTitle"></h2>
+      <div id="listBox"><p class="empty">加载中…</p></div>
+    </div>
+    <footer>© 2025 东神萤火电竞 · All Rights Reserved.</footer>
+  </div>
+
+  <!-- 数据文件（与首页同目录） -->
+  <script src="Gg.js"></script>
+  <script src="MvphSvpfm.js"></script>
+
+  <script>
+    /* ---------- 分享 ---------- */
+    function sharePage() {
+      const url = location.href;
+      if (navigator.share) {
+        navigator.share({ title: document.title, text: '查看东神萤火电竞全部资讯！', url }).catch(()=>{});
+      } else {
+        navigator.clipboard.writeText(url).then(()=>alert('链接已复制！'));
+      }
+    }
+
+    /* ---------- 渲染 ---------- */
+    function renderList(arr) {
+      if (!arr || !arr.length) return '<p class="empty">暂无数据</p>';
+      return '<ul class="list">' + arr.map(i=>`<li>${i}</li>`).join('') + '</ul>';
+    }
+
+    /* ---------- 切换逻辑 ---------- */
+    const btnPage = document.getElementById('btnPage');
+    const listPage = document.getElementById('listPage');
+    const listTitle = document.getElementById('listTitle');
+    const listBox = document.getElementById('listBox');
+
+    function showList(type) {
+      btnPage.style.display = 'none';
+      listPage.style.display = 'block';
+      if (type === 'gg') {
+        listTitle.textContent = '全部公告';
+        listBox.innerHTML = (typeof ggData !== 'undefined' && Array.isArray(ggData))
+          ? renderList(ggData) : '<p class="empty">无法加载公告数据</p>';
+      } else { // mvp
+        listTitle.textContent = '全部 MVP / SVP';
+        listBox.innerHTML = (typeof mvpData !== 'undefined' && Array.isArray(mvpData))
+          ? renderList(mvpData) : '<p class="empty">无法加载MVP/SVP数据</p>';
+      }
+    }
+
+    function backToBtn() {
+      listPage.style.display = 'none';
+      btnPage.style.display = 'flex';
+    }
+  </script>
+</body>
+</html>

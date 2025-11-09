@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 基础信息 -->
+    <meta charset="UTF-8">
+    <title>东神萤火电竞官网</title>
+    <meta name="description" content="东神萤火电竞官网提供最新资讯，打造全民电竞娱乐平台。">
+    <meta name="keywords" content="东神萤火电竞官网,选手,最新资讯,东神,萤火,萤火突击,电竞,官网,东神电竞,东神萤火,东神萤火突击,东神萤火电竞">
+
+    <!-- 移动适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 允许抓取 -->
+    <meta name="robots" content="index,follow">
+
+    <!-- Open Graph / 社交分享 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="东神萤火电竞官网">
+    <meta property="og:description" content="最新资讯，等尽在东神萤火电竞官网！">
+    <meta property="og:url" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/">
+    <meta property="og:image" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/publicity.png">
+
+    <!-- 图标 -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+    <!-- 样式 -->
+    <style>
+        :root{
+            --primary:#0ff;
+            --bg:#111;
+            --text:#fff;
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);}
+
+        /* ===== 顶部 logo + 标题 ===== */
+        .site-header{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:1rem;
+            padding:2rem 1rem;
+            text-align:left;
+        }
+        .logo{
+            height:3rem;
+            width:auto;
+        }
+        .titles h1{
+            margin:0;
+            font-size:2.5rem;
+        }
+        .titles .sub{
+            margin:.3rem 0 0;
+            font-size:1.2rem;
+            color:#aaa;
+        }
+
+        section{max-width:800px;margin:0 auto;padding:2rem 1rem;}
+        .btn{display:inline-block;margin-top:1rem;padding:.8rem 1.6rem;background:var(--primary);color:#000;border-radius:4px;text-decoration:none;font-weight:bold;}
+
+        footer{text-align:center;padding:2rem 1rem;font-size:.9rem;color:#666;}
+
+        /* 动态列表简单样式 */
+        .news-list li{list-style:none;margin:.4rem 0;font-size:1rem;}
+        .split-line{text-align:center;margin:.8rem 0;color:#555;}
+        
+        .error-message {
+            color: #ff5555;
+            background: rgba(255, 85, 85, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        /* 排名样式 */
+        .ranking-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .ranking-list li {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            border-left: 3px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <img src="logo.png" alt="东神萤火电竞" class="logo">
+        <div class="titles">
+            <h1>东神萤火电竞</h1>
+            <p class="sub">点燃热爱 · 闪耀赛场</p>
+        </div>
+    </header>
+
+    <!-- 最新资讯区块 -->
+    <section id="news">
+        <h2>最新资讯</h2>
+        <div id="news-container">
+            <p>加载中，请稍候···</p>
+        </div>
+        <a class="btn" href="ZxzxdCkgd.html">查看更多</a>
+    </section>
+
+    <section>
+        <h2>我们的电竞选手排名榜</h2>
+        <div id="ranking-container">
+            <p>加载中，请稍候···</p>
+        </div>
+        <a class="btn" href="Ckqb.html">查看全部</a>
+    </section>
+
+    <section>
+        <h2>查看我们的赛季推断与预测</h2>
+        <p>点击下方的'查看'按钮即可查看相关信息</p>
+        <a class="btn" href="Ck.html">查看</a>
+    </section>
+
+    <footer>
+        © 2025 东神萤火电竞 · All Rights Reserved.
+    </footer>
+
+    <!-- 直接加载JS文件 -->
+    <script src="Gg.js"></script>
+    <script src="MvphSvpfm.js"></script>
+    <script src="Ssfm.js"></script>
+    
+    <!-- 主脚本 -->
+    <script>
+        /* ---------- 工具函数 ---------- */
+        // 检查变量是否存在
+        function isVariableDefined(varName) {
+            try {
+                return typeof eval(varName) !== 'undefined';
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // 渲染列表
+        function renderList(arr) {
+            if (!arr || !arr.length) return '<p>暂无数据</p>';
+            return '<ul class="news-list">' +
+                   arr.map(item => `<li>${item}</li>`).join('') +
+                   '</ul>';
+        }
+
+        // 渲染排名列表
+        function renderRankingList(arr) {
+            if (!arr || !arr.length) return '<p>暂无排名数据</p>';
+            return '<ul class="ranking-list">' +
+                   arr.map(item => `<li>${item}</li>`).join('') +
+                   '</ul>';
+        }
+
+        /* ---------- 主流程 ---------- */
+        (function() {
+            // 1. 处理新闻区块
+            const newsBox = document.getElementById('news-container');
+            let newsHtml = '';
+            
+            // 尝试获取 Gg.js 中的数据
+            if (isVariableDefined('ggData') && Array.isArray(ggData)) {
+                newsHtml += renderList(ggData.slice(0, 6));
+            } else {
+                newsHtml += '<p class="error-message">无法加载公告数据</p>';
+            }
+
+            // 分割线
+            newsHtml += '<p class="split-line">——————分割——————</p>';
+
+            // 尝试获取 MvphSvpfm.js 中的数据
+            if (isVariableDefined('mvpData') && Array.isArray(mvpData)) {
+                newsHtml += renderList(mvpData.slice(0, 5));
+            } else {
+                newsHtml += '<p class="error-message">无法加载MVP数据</p>';
+            }
+
+            newsBox.innerHTML = newsHtml;
+
+            // 2. 处理排名区块
+            const rankingBox = document.getElementById('ranking-container');
+            if (isVariableDefined('ssfmData') && Array.isArray(ssfmData)) {
+                rankingBox.innerHTML = renderRankingList(ssfmData.slice(0, 4));
+            } else {
+                rankingBox.innerHTML = '<p class="error-message">无法加载选手排名数据</p>';
+            }
+        })();
+    </script>
+</body>
+</html>

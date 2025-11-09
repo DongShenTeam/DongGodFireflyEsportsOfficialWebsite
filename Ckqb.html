@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>全部选手排名 | 东神萤火电竞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="东神萤火电竞全部选手排名一览，实时更新">
+  <meta name="keywords" content="东神萤火,电竞,选手排名,全部排名">
+
+  <!-- Open Graph / 社交分享（复用同一张图） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="全部选手排名 | 东神萤火电竞">
+  <meta property="og:description" content="查看所有选手积分排名">
+  <meta property="og:url" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/Ckqb.html">
+  <meta property="og:image" content="https://dongshenteam.github.io/DongGodFireflyEsportsOfficialWebsite/publicity.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+  <style>
+    :root{ --primary:#0ff; --bg:#111; --text:#fff; }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);}
+    a{color:var(--primary);text-decoration:none;}
+
+    /* 顶部返回+分享 */
+    .top-bar{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.5rem;border-bottom:1px solid #333;}
+    .back-link{font-size:1rem;font-weight:bold;}
+    .share-link{font-size:1rem;font-weight:bold;}
+    /* 顶部栏：返回 & 分享 文字按钮 */
+.back-link,
+.share-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background: var(--primary);
+  color: #000;
+  padding: .4rem .8rem;
+  border-radius: 4px;
+}
+
+    /* 内容区 - 直接抄 index 第二部分 */
+    .content{max-width:800px;margin:2rem auto;padding:0 1rem;text-align:center;}
+    .content h2{margin-bottom:1rem;font-size:2rem;color:var(--primary);}
+    .ranking-list{list-style:none;margin:1rem 0;}
+    .ranking-list li{padding:.8rem;margin:.5rem 0;background:rgba(255,255,255,0.05);border-left:3px solid var(--primary);border-radius:4px;text-align:left;}
+
+    .empty{color:#888;margin:2rem 0;}
+    footer{text-align:center;padding:2rem 0;font-size:.9rem;color:#666;}
+  </style>
+</head>
+
+<body>
+  <!-- 顶部栏：返回（文字） + 分享（文字） -->
+  <div class="top-bar">
+    <a class="back-link" href="index.html">↩ 返回官网</a>
+    <a class="share-link" href="javascript:void(0)" onclick="sharePage()">分享</a>
+  </div>
+
+  <!-- 页面主体 -->
+  <div class="content">
+    <h2>全部选手排名</h2>
+    <div id="rank-box"><p class="empty">加载中…</p></div>
+  </div>
+
+  <footer>
+    © 2025 东神萤火电竞 · All Rights Reserved.
+  </footer>
+
+  <!-- 数据文件 -->
+  <script src="Ssfm.js"></script>
+
+  <script>
+    /* ---------- 分享 ---------- */
+    function sharePage() {
+      const url = location.href;
+      if (navigator.share) {
+        navigator.share({ title: document.title, text: '查看东神萤火电竞全部选手排名！', url }).catch(()=>{});
+      } else {
+        navigator.clipboard.writeText(url).then(()=>alert('链接已复制！'));
+      }
+    }
+
+    /* ---------- 渲染全部排名 ---------- */
+    (function () {
+      const box = document.getElementById('rank-box');
+      if (typeof ssfmData !== 'undefined' && Array.isArray(ssfmData)) {
+        box.innerHTML = '<ul class="ranking-list">' +
+                        ssfmData.map(item => `<li>${item}</li>`).join('') +
+                        '</ul>';
+      } else {
+        box.innerHTML = '<p class="empty">暂无排名数据</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
